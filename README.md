@@ -1,0 +1,6 @@
+# Starcurriculo
+Site Gerador de Currículo 
+À medida que o mundo tecnológico continua avançando, sua presença cada vez mais proeminente está se convertendo em uma arena competitiva onde os mais ágeis colhem as maiores recompensas. Nesse cenário, a automação desempenha um papel crucial, permeando diversos aspectos do cotidiano.
+O mundo dos negócios continua a buscar a excelência com base na seleção de candidatos adequados. Essa busca é movida pela experiência de formação acadêmica, projeto finalizado e outras características. É aqui que o currículo desempenha um papel fundamental, servindo de ponte para o mundo tecnológico de hoje e de amanhã.
+Neste contexto, o nosso projeto tem como objetivo central a criação de um website inovador. Este site será um portal de recolha de informação, que permitirá a geração personalizada de vários modelos de CV, cada um com a sua orientação específica. Do modelo cronológico tradicional ao portfólio de currículos moderno, cada modelo será refinado de acordo com as informações fornecidas.
+O principal objetivo desta iniciativa é fornecer aos candidatos uma experiência efetiva e autêntica. Ao tornar o processo de criação de currículos mais fácil e simplificado. O nosso projeto visa otimizar o tempo despendido na preparação das candidaturas. Para garantir que o currículo gerado seja preciso e autêntico em todos os sentidos.
