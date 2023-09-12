@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+</head>
+
+<body>
+  <form id="meuFormulario">
+    <!-- Seção Perfil -->
+    <div id="perfil">
+      <h2>Perfil</h2>
+      <label class="custum-file-upload" for="file">
+        <div class="icon">
+          <img id="preview" src="" alt="" style="display: none" />
+          <svg xmlns="http://www.w3.org/2000/svg" fill="" viewBox="0 0 24 24">
+            <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+            <g stroke-linejoin="round" stroke-linecap="round" id="SVGRepo_tracerCarrier"></g>
+            <g id="SVGRepo_iconCarrier">
+              <path fill=""
+                d="M10 1C9.73478 1 9.48043 1.10536 9.29289 1.29289L3.29289 7.29289C3.10536 7.48043 3 7.73478 3 8V20C3 21.6569 4.34315 23 6 23H7C7.55228 23 8 22.5523 8 22C8 21.4477 7.55228 21 7 21H6C5.44772 21 5 20.5523 5 20V9H10C10.5523 9 11 8.55228 11 8V3H18C18.5523 3 19 3.44772 19 4V9C19 9.55228 19.4477 10 20 10C20.5523 10 21 9.55228 21 9V4C21 2.34315 19.6569 1 18 1H10ZM9 7H6.41421L9 4.41421V7ZM14 15.5C14 14.1193 15.1193 13 16.5 13C17.8807 13 19 14.1193 19 15.5V16V17H20C21.1046 17 22 17.8954 22 19C22 20.1046 21.1046 21 20 21H13C11.8954 21 11 20.1046 11 19C11 17.8954 11.8954 17 13 17H14V16V15.5ZM16.5 11C14.142 11 12.2076 12.8136 12.0156 15.122C10.2825 15.5606 9 17.1305 9 19C9 21.2091 10.7909 23 13 23H20C22.2091 23 24 21.2091 24 19C24 17.1305 22.7175 15.5606 20.9844 15.122C20.7924 12.8136 18.858 11 16.5 11Z"
+                clip-rule="evenodd" fill-rule="evenodd"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
+          <span>Clique para colocar sua foto</span>
+        </div>
+        <input type="file" id="file">
+      </label>
+      <div class="baixo">
+        <label for="nome">Nome</label><br>
+        <input type="text" id="nome" name="nome"><br>
+      </div>
+      <div class="baixosobre">
+        <label for="nome">sobrenome</label><br>
+        <input type="text" id="sobre" name="sobre"><br>
+      </div>
+      <div class="data">
+        <label for="nascimento">Data de Nascimento</label><br>
+        <input type="date" id="nascimento" name="nascimento"><br>
+      </div>
+      <div class="emaill">
+        <label for="email">Email</label><br>
+        <input type="email" id="email" name="email"><br>
+      </div>
+      <div class="cargo">
+        <label for="nome">Cargo</label><br>
+        <input type="text" id="cargo" name="cargo" required><br>
+      </div>
+      <div class="pais">
+        <label for="nome">Pais</label><br>
+        <input type="text" id="pais" name="pais"><br>
+      </div>
+      <div class="cidade">
+        <label for="nome">Cidade</label><br>
+        <input type="text" id="cidade" name="cidade"><br>
+      </div>
+    </div>
+
+    <!-- Seção Cursos -->
+    <div id="cursos">
+      <h2>Cursos <button type="button" id="toggle-button" onclick="toggleCursos(event)">+</button></h2>
+      <div id="cursos-content" style="display: none">
+        <div class="nomecuro">
+          <label for="nome_curso">Nome do Curso:</label><br>
+          <input type="text" id="nome_curso" name="nome_curso"><br>
+        </div>
+        <label for="inicio_curso">Início do Curso:</label>
+        <input type="date" id="inicio_curso" name="inicio_curso">&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="fim_curso">Fim do Curso:</label>
+        <input type="date" id="fim_curso" name="fim_curso"><br>
+        <div class="instituicaoa">
+          <label for="instituicao">Instituição:</label><br>
+          <input type="text" id="instituicao" name="instituicao"><br>
+        </div>
+      </div>
+    </div>
+
+    <div id="estagios">
+      <h2>Estágios <button type="button" id="toggle-button-estagio" onclick="toggleEstagios(event)">+</button></h2>
+      <div id="estagios-content" style="display: none">
+        <div class="nome-estagio">
+          <label for="nome_estagio">Cargo:</label><br>
+          <input type="text" id="nome_estagio" name="nome_estagio"><br>
+        </div>
+        <div class="empregador">
+          <label for="empregador">Empregador:</label><br>
+          <input type="text" id="empregador" name="empregador"><br>
+        </div>
+        <label for="inicio_estagio">Início do Estágio:</label>
+        <input type="date" id="inicio_estagio" name="inicio_estagio">&nbsp;&nbsp;&nbsp;&nbsp;
+        <label for="fim_estagio">Fim do Estágio:</label>
+        <input type="date" id="fim_estagio" name="fim_estagio"><br>
+        <div class="cidade-estagio">
+          <label for="cidade_estagio">Cidade:</label><br>
+          <input type="text" id="cidade_estagio" name="cidade_estagio"><br>
+        </div>
+        <div class="descricao-estagio">
+          <label for="descricao_estagio">Descrição:</label><br>
+          <textarea id="descricao_estagio" name="descricao_estagio"></textarea><br>
+        </div>
+      </div>
+    </div>
+    <!-- Seção Competências -->
+    <div id="competencias">
+      <h2>Competências<button type="button" id="toggle-button-competencias"
+          onclick="toggleCompetencias(event)">+</button>
+      </h2>
+      <div id="competencias-content" style="display: none">
+        <button onclick="selecionarCompetencia(event)" value="Trabalho em equipe">Trabalho em equipe</button>
+        <button onclick="selecionarCompetencia(event)" value="Responsabilidade">Responsabilidade</button>
+        <button onclick="selecionarCompetencia(event)" value="Negociação">Negociação</button>
+      </div>
+      <div id="competencias-selecionadas">
+        <!-- As competências selecionadas aparecerão aqui -->
+      </div>
+    </div>
+
+    <div id="modal" style="display: none">
+      <div class="modal-content">
+        <img id="edit" style="max-width: 100%">
+        <button id="save">Salvar foto</button>
+      </div>
+    </div>
+
+    <input type="button" value="Gerar seu Curriculo" onclick="gerarPDF(event)">
+
+  </form>
+
+  <script>
+    // Coloque a função toggleCursos() no início do script
+    function toggleCursos(event) {
+      event.preventDefault();
+      var cursosContent = document.getElementById('cursos-content');
+      var toggleButton = document.getElementById('toggle-button');
+      if (cursosContent.style.display === "none") {
+        cursosContent.style.display = "block";
+        toggleButton.textContent = "-";
+      } else {
+        cursosContent.style.display = "none";
+        toggleButton.textContent = "+";
+      }
+    }
+
+    function toggleEstagios(event) {
+      event.preventDefault();
+      var estagiosContent = document.getElementById('estagios-content');
+      var toggleButton = document.getElementById('toggle-button-estagio');
+      if (estagiosContent.style.display === "none") {
+        estagiosContent.style.display = "block";
+        toggleButton.textContent = "-";
+      } else {
+        estagiosContent.style.display = "none";
+        toggleButton.textContent = "+";
+      }
+    }
+
+
+
+
+
+    function toggleCompetencias(event) {
+      event.preventDefault();
+      var competenciasContent = document.getElementById('competencias-content');
+      var toggleButton = document.getElementById('toggle-button-competencias');
+      if (competenciasContent.style.display === "none") {
+        competenciasContent.style.display = "block";
+        toggleButton.textContent = "-";
+      } else {
+        competenciasContent.style.display = "none";
+        toggleButton.textContent = "+";
+      }
+    }
+
+    function selecionarCompetencia(event) {
+      event.preventDefault();
+      var competencia = event.target;
+      var competenciasSelecionadas = document.getElementById('competencias-selecionadas');
+      competenciasSelecionadas.appendChild(competencia);
+    }
+    
+    function getCompetencias() {
+      var competenciasSelecionadas = document.getElementById('competencias-selecionadas');
+      var competencias = Array.from(competenciasSelecionadas.children).map(function (button) {
+        return button.value;
+      });
+      return competencias.join(',');
+    }
+
+    function selecionarCompetencia(event) {
+      event.preventDefault();  // Adicione esta linha
+      var competencia = event.target;
+      var competenciasSelecionadas = document.getElementById('competencias-selecionadas');
+      competenciasSelecionadas.appendChild(competencia);
+    }
+
+
+
+    function getFileData(file) {
+      return new Promise((resolve, reject) => {
+        let reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+    let cropper;
+    document.getElementById('file').addEventListener('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (event) {
+        var imgElement = document.getElementById('edit');
+        imgElement.src = event.target.result;
+        document.querySelector('.custum-file-upload .icon svg').style.display = 'none';
+        document.querySelector('.custum-file-upload .text').style.display = 'none';
+
+        if (cropper !== undefined) {
+          cropper.destroy();
+        }
+
+        cropper = new Cropper(imgElement, {
+          aspectRatio: 5 // você pode ajustar isso de acordo com suas necessidades
+        });
+
+        document.getElementById('modal').style.display = 'block';
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    });
+
+
+    document.getElementById('save').addEventListener('click', function (event) {
+      event.preventDefault();
+
+      cropper.getCroppedCanvas().toBlob(function (blob) {
+        var url = URL.createObjectURL(blob);
+        var imgElement = document.getElementById('preview');
+        imgElement.src = url;
+        document.getElementById('modal').style.display = 'none';
+      });
+    });
+
+
+    cropper = new Cropper(imgElement, {
+      aspectRatio: 1, // você pode ajustar isso de acordo com suas necessidades
+      viewMode: 1
+    });
+
+
+    async function gerarPDF(event) {
+      event.preventDefault();
+      var nome = document.getElementById('nome').value;
+      var sobre = document.getElementById('sobre').value;
+      var nascimento = document.getElementById('nascimento').value;
+      var cargo = document.getElementById('cargo').value;
+      var email = document.getElementById('email').value;
+      var cidade = document.getElementById('cidade').value;
+      var pais = document.getElementById('pais').value;
+      var nome_curso = document.getElementById('nome_curso').value;
+      var inicio_curso = document.getElementById('inicio_curso').value;
+      var fim_curso = document.getElementById('fim_curso').value;
+      var instituicao = document.getElementById('instituicao').value;
+      var nome_estagio = document.getElementById('nome_estagio').value;
+      var empregador = document.getElementById('empregador').value;
+      var inicio_estagio = document.getElementById('inicio_estagio').value;
+      var fim_estagio = document.getElementById('fim_estagio').value;
+      var cidade_estagio = document.getElementById('cidade_estagio').value;
+      var descricao_estagio = document.getElementById('descricao_estagio').value;
+      var fotoDataUrl = '';
+      var fotoFile = document.getElementById('file').files[0];
+      if (fotoFile) {
+        fotoDataUrl = await getFileData(fotoFile);
+      }
+      var conteudoHTML = `
+    <h3>Curriculo Gerado</h3>
+    <img src="${fotoDataUrl}" width="100"> <p>${nome} ${sobre}</p>
+    <h3>Data de Nascimento:</h3>
+    <p>${nascimento}</p>
+    <h3>Cargo Desejado:</h3>
+    <p>${cargo}</p>
+    <h3>Email:</h3>
+    <p>${email}</p>
+    <h3>Pais</h3>
+    <p>${pais}</p>
+    <h3>Cidade:</h3>
+    <p>${cidade}</p>
+    <h3>Cursos:</h3>
+    <p>Nome do Curso: ${nome_curso}</p>
+    <p>Início do Curso: ${inicio_curso}</p>
+    <p>Fim do Curso: ${fim_curso}</p>
+    <p>Instituição: ${instituicao}</p>
+    <h3>Estágios:</h3>
+    <p>Cargo: ${nome_estagio}</p>
+    <p>Empregador: ${empregador}</p>
+    <p>Início do Estágio: ${inicio_estagio}</p>
+    <p>Fim do Estágio: ${fim_estagio}</p>
+    <p>Cidade: ${cidade_estagio}</p>
+    <p>Descrição: ${descricao_estagio}</p>
+    <h3>Competências:</h3>
+    <p>${getCompetencias() }</p>
+  `;
+
+      var pdf = new jsPDF('p', 'pt', 'letter');
+      var source = conteudoHTML;
+
+      var specialElementHandlers = {
+        '#bypassme': function (element, renderer) {
+          return true
+        }
+      };
+
+      var margins = {
+        top: 80,
+        bottom: 60,
+        left: 40,
+        width: 522
+      };
+
+      pdf.fromHTML(
+        source,
+        margins.left,
+        margins.top, {
+        'width': margins.width,
+        'elementHandlers': specialElementHandlers
+      },
+        function (dispose) {
+          window.open(pdf.output('bloburl'), '_blank');
+        },
+        margins
+      );
+    }
+
+  </script>
+</body>
+
+</html>
