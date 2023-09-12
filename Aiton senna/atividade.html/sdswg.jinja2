@@ -1,0 +1,33 @@
+from jinja2 import Template
+
+# Template do currículo em formato Jinja2
+curriculo_template = """
+Nome: {{ nome }}
+Contato: {{ contato }}
+Experiência: {{ experiencia }}
+Educação: {{ educacao }}
+Habilidades: {{ habilidades }}
+"""
+
+# Coleta de informações
+nome = input("Nome: ")
+contato = input("Contato: ")
+experiencia = input("Experiência: ")
+educacao = input("Educação: ")
+habilidades = input("Habilidades: ")
+
+# Armazenamento das informações em um dicionário
+dados_curriculo = {
+    "nome": nome,
+    "contato": contato,
+    "experiencia": experiencia,
+    "educacao": educacao,
+    "habilidades": habilidades
+}
+
+# Renderização do currículo
+template = Template(curriculo_template)
+curriculo_final = template.render(dados_curriculo)
+
+# Impressão do currículo final
+print("
